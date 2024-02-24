@@ -1,0 +1,55 @@
+{
+  "configVersion": "v2",
+  "app": {
+    "appId": 28114,
+    "appName": "Sedentary Alert",
+    "appType": "app",
+    "version": {
+      "code": 1,
+      "name": "1.0.1"
+    },
+    "icon": "icon.png",
+    "vender": "mohansella",
+    "description": "Sedentary alert app"
+  },
+  "permissions": [
+    "data:os.device.info",
+    "device:os.local_storage"
+  ],
+  "runtime": {
+    "apiVersion": {
+      "compatible": "2.0.0",
+      "target": "2.0.0",
+      "minVersion": "2.0"
+    }
+  },
+  "debug": false,
+  "targets": {
+    "trex": {
+      "module": {
+        "page": {
+          "pages": [
+            "page/trex/home/index.page"
+          ]
+        }
+      },
+      "platforms": [
+        {
+          "name": "trex-2a",
+          "deviceSource": 418
+        },
+        {
+          "name": "trex-2b",
+          "deviceSource": 419
+        }
+      ],
+      "designWidth": 454
+    }
+  },
+  "i18n": {
+    "en-US": {
+      "appName": "Sedentary Alert"
+    }
+  },
+  "defaultLanguage": "en-US"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "sedentary-alert",
+  "version": "1.0.0",
+  "description": "A sedentary alert app for Zepp OS",
+  "main": "app.js",
+  "author": "mohansella",
+  "license": "ISC",
+  "dependencies": {
+    "@zeppos/device-types": "^3.0.0"
+  }
+}
