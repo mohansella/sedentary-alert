@@ -12,36 +12,6 @@ Page({
     alertIn: 0, //UTC timestamp
   },
 
-  buildState() { //custom function
-
-    const activityString = this.state.activityNeeded == 0 ? "-" : (this.state.activitySoFar + "/" + this.state.activityNeeded );
-
-    const gui = new AutoGUI();
-    const options = { align_h: align.CENTER_H };
-
-    gui.spacer(); gui.newRow();
-    const activeTargetTitle = gui.text("Activity Target", options); gui.newRow();
-    const activeTargetValue = gui.text(activityString, options); gui.newRow();
-    
-    gui.spacer(); gui.newRow();
-
-    const alertInTitle = gui.text("Alert In", options); gui.newRow();
-    const alertInValue = gui.text("-", options); gui.newRow();
-    
-    gui.spacer(); gui.newRow();
-    
-    const lastActiveTitle = gui.text("Last Active", options); gui.newRow();
-    const lastActiveValue = gui.text("-", options); gui.newRow();
-    gui.spacer(); gui.newRow();
-    
-    
-    gui.render();
-  },
-
-  build() {
-    logger.debug('page build invoked');
-    this.buildState();
-  },
   onInit() {
     logger.debug("page onInit invoked");
   },
@@ -49,4 +19,36 @@ Page({
   onDestroy() {
     logger.debug("page onDestroy invoked");
   },
+
+  build() {
+    logger.debug('page build invoked');
+    this.buildState();
+  },
+  
+  buildState() { //custom function
+
+    const activityString = this.state.activityNeeded == 0 ? "-" : (this.state.activitySoFar + "/" + this.state.activityNeeded );
+
+    const gui = new AutoGUI();
+    const titleOptions = { text_size: 25 };
+    const valueOptions = { text_size: 20, color: 0xcccccc };
+
+    gui.spacer(); gui.newRow();
+    const activeTargetTitle = gui.text("Activity Target", titleOptions); gui.newRow();
+    const activeTargetValue = gui.text(activityString, valueOptions); gui.newRow();
+    
+    gui.spacer(); gui.newRow();
+
+    const alertInTitle = gui.text("Alert In", titleOptions); gui.newRow();
+    const alertInValue = gui.text("-", valueOptions); gui.newRow();
+    
+    gui.spacer(); gui.newRow();
+    
+    const lastActiveTitle = gui.text("Last Active", titleOptions); gui.newRow();
+    const lastActiveValue = gui.text("-", valueOptions); gui.newRow();
+    gui.spacer(); gui.newRow();
+    
+    gui.render();
+  },
+
 });
