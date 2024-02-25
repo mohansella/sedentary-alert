@@ -1,19 +1,17 @@
-import { align } from '@zos/ui';
 import { log as Logger } from '@zos/utils';
 import AutoGUI from '@silver-zepp/autogui';
+import { getSedentaryState } from '../../../utils';
 
 const logger = Logger.getLogger("SedentaryAlert");
 Page({
   
   state: {
-    activitySoFar: 0, //steps count
-    activityNeeded: 100, //steps count
-    lastActive: 0,  //UTC timestamp
-    alertIn: 0, //UTC timestamp
+    sedentary: null
   },
 
   onInit() {
     logger.debug("page onInit invoked");
+    this.state.sedentary = getSedentaryState();
   },
 
   onDestroy() {
@@ -24,10 +22,11 @@ Page({
     logger.debug('page build invoked');
     this.buildState();
   },
-  
+
   buildState() { //custom function
 
-    const activityString = this.state.activityNeeded == 0 ? "-" : (this.state.activitySoFar + "/" + this.state.activityNeeded );
+    const sedentaryState = this.state.sedentary;
+    const activityString = sedentaryState.activityNeeded == 0 ? "-" : (sedentaryState.activitySoFar + "/" + sedentaryState.activityNeeded );
 
     const gui = new AutoGUI();
     const titleOptions = { text_size: 25 };
