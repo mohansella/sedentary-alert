@@ -6,6 +6,7 @@
   "author": "mohansella",
   "license": "ISC",
   "dependencies": {
+    "@silver-zepp/autogui": "^1.2.9",
     "@zeppos/device-types": "^3.0.0"
   }
 }
